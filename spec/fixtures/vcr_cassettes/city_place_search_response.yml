@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=photos&input=denver,co&inputtype=textquery&key=<GOOGLE_MAPS_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 07 Jun 2020 18:18:24 GMT
+      Expires:
+      - Sun, 07 Jun 2020 18:23:24 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - scaffolding on HTTPServer2
+      Content-Length:
+      - '397'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=456
+      Alt-Svc:
+      - h3-27=":443"; ma=2592000,h3-25=":443"; ma=2592000,h3-T050=":443"; ma=2592000,h3-Q050=":443";
+        ma=2592000,h3-Q049=":443"; ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "candidates" : [
+              {
+                 "photos" : [
+                    {
+                       "height" : 960,
+                       "html_attributions" : [
+                          "\u003ca href=\"https://maps.google.com/maps/contrib/109265035584393045274\"\u003eDave Nitkiewicz\u003c/a\u003e"
+                       ],
+                       "photo_reference" : "CmRaAAAAOJ6vOt6yOGSPTkM92Tc2AhiovwuLYVwDOTZTF6QL2jyXgPKPh6JPg0b_i25izPBsIOs9biMxStkYr7ds3bj3vfzWkVXV3W-d0-hL0OLAJGKXm-blpQPXBtb0aHTe4Ii8EhDZ_3Mn7Xjbb2mihzwul3zCGhS7JLGFuP_yd1ma5Zx1DUu1Vu9qDg",
+                       "width" : 849
+                    }
+                 ]
+              }
+           ],
+           "status" : "OK"
+        }
+  recorded_at: Sun, 07 Jun 2020 18:18:24 GMT
+recorded_with: VCR 6.0.0
