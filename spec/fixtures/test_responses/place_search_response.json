@@ -1,7 +1,16 @@
 {
   "candidates": [
     {
-      "place_id": "ChIJzxcfI6qAa4cR1jaKJ_j0jhE"
+      "photos": [
+        {
+          "height": 960,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109265035584393045274\">Dave Nitkiewicz</a>"
+          ],
+          "photo_reference": "CmRaAAAAATr-BoHwQHwApeHjZNaZmpaujK0i1AemIrf8Eits7UCU0SmPQ54bxy8_ZkhOD1bLmHSxfwEEhOENZzBe1DFpZ0A8u1ZSL5ujO-8KEeh8J_A12CD8L-aGvt9tosdcdNEnEhBgv15sljpMXTT-M-VhrOQeGhQvefM4QF0SDPJ4GTMaYqN6GR_nwA",
+          "width": 849
+        }
+      ]
     }
   ],
   "status": "OK"
