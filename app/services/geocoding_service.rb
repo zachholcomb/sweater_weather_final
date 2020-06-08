@@ -2,7 +2,7 @@ class GeocodingService
   class << self
     def get_lat_long(city_params)
       response = conn(city_params)
-      get_json(response)
+      get_json(response)[:results].first[:geometry][:location]
     end
 
     private
