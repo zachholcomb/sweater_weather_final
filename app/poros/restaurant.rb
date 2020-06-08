@@ -7,7 +7,7 @@ class Restaurant
     @address = details[:address]
   end
 
-  def get_resaurant(search_params)
+  def self.get_restaurant(search_params)
    details = RestaurantSearchService.return_restaurant_info(search_params)
    Restaurant.new(details)
   end
