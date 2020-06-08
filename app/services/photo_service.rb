@@ -5,7 +5,7 @@ class PhotoService
       photo_reference = "photoreference=#{get_photo_reference(city_param)}"
       maxwidth = '&maxwidth=1080'
       key = "&key=#{ENV['GOOGLE_MAPS_API_KEY']}"
-      url = "#{url}" + "#{photo_reference}" + "#{maxwidth}" + "#{key}"
+      url = url + photo_reference + maxwidth + key
     end
 
     def get_photo_reference(city_param)
@@ -27,7 +27,7 @@ class PhotoService
     end
 
     def get_json(response)
-      JSON.parse(response.body, symbolize_names: true)  
+      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end

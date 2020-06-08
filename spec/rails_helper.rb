@@ -79,4 +79,5 @@ VCR.configure do |config|
   config.filter_sensitive_data('<GOOGLE_MAPS_API_KEY>') { ENV['GOOGLE_MAPS_API_KEY'] }
   config.filter_sensitive_data('<WEATHER_API_KEY>') { ENV['WEATHER_API_KEY'] }
   config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = true
 end
