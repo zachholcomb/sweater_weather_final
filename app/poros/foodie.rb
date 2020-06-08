@@ -6,6 +6,6 @@ class Foodie
   def initialize(params)
     @id = nil
     @directions = TripInfo.get_trip_info(params[:start], params[:end])
-    @restaurant = Restaurant.get_restaurant(params[:search])
+    @restaurant = Restaurant.get_restaurant(params[:search], params[:end])
   end
 end
