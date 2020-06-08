@@ -1,0 +1,3 @@
+class RestaurantSearchService
+  
+end
