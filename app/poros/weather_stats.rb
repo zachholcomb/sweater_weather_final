@@ -24,7 +24,7 @@ class WeatherStats
   end
 
   def get_daily_forecast(stats)
-    stats[:daily][0..4].map do |daily_params|
+    stats[:daily][1..5].map do |daily_params|
       DailyWeather.new(daily_params)
     end
   end

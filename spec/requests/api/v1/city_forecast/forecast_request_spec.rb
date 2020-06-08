@@ -41,11 +41,12 @@ RSpec.describe 'Forecast request spec' do
         get '/api/v1/forecast?location=denver,co'
         forecast_response = JSON.parse(response.body, symbolize_names: true)
         daily = forecast_response[:data][:attributes][:daily_forecast].first
+
         expect(daily[:day]).to eq('Monday')
-        expect(daily[:min_temp]).to eq(74)
-        expect(daily[:max_temp])
-        expect(daily[:description]).to eq('Clear')
-        expect(daily[:precipitaion]).to eq(0)
+        expect(daily[:min_temp]).to eq(51)
+        expect(daily[:max_temp]).to eq(80)
+        expect(daily[:description]).to eq('Rain')
+        expect(daily[:precipitation]).to eq(4)
       end
     end
   end
@@ -56,9 +57,10 @@ RSpec.describe 'Forecast request spec' do
         get '/api/v1/forecast?location=denver,co'
         forecast_response = JSON.parse(response.body, symbolize_names: true)
         hourly = forecast_response[:data][:attributes][:hourly_forecast].first
-        expect(hourly[:hour]).to eq(' 6:00')
+       
+        expect(hourly[:hour]).to eq(' 5:00 PM')
         expect(hourly[:temp]).to eq(88)
-        expect(current[:icon]).to eq("http://openweathermap.org/img/wn/01d@2x.png")
+        expect(hourly[:icon]).to eq("http://openweathermap.org/img/wn/01d@2x.png")
       end
     end
   end
