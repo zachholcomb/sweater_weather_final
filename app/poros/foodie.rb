@@ -1,7 +1,8 @@
 class Foodie
   attr_reader :id,
               :directions,
-              :restaurant
+              :restaurant,
+              :current_weather
 
   def initialize(params)
     @id = nil
