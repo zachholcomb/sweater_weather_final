@@ -10,7 +10,7 @@ class CurrentWeather
               :temp_max
 
   def initialize(stats)
-    @current_temperature = stats[:current][:current_temp]
+    @current_temperature = stats[:current][:temp]
     @description = stats[:current][:weather].first[:description]
     @feels_like = stats[:current][:feels_like]
     @sunrise = stats[:current][:sunrise]
