@@ -3,8 +3,8 @@ class Restaurant
               :address
               
   def initialize(details)
-    @name = details[:name]
-    @address = details[:address]
+    @name = details[:restaurant][:name]
+    @address = details[:restaurant][:location][:address]
   end
 
   def self.get_restaurant(search_param, destination)
