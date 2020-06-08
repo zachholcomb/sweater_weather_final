@@ -1,10 +1,10 @@
 class DailyWeather
-    attr_reader :day,
-                :min_temp,
-                :max_temp,
-                :description,
-                :icon,
-                :rain
+  attr_reader :day,
+              :min_temp,
+              :max_temp,
+              :description,
+              :icon,
+              :rain
 
   def initialize(stats)
     @day = format_day(stats[:dt])

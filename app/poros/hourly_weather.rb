@@ -15,7 +15,7 @@ class HourlyWeather
     Time.at(time).strftime('%l:%M %p')
   end
 
-   def get_icon_url(icon)
+  def get_icon_url(icon)
     "http://openweathermap.org/img/wn/#{icon}@2x.png"
   end
 end

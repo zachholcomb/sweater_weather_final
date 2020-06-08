@@ -8,7 +8,7 @@ class BackgroundPhoto
   end
 
   def self.get_city_photo(city_param)
-   url = PhotoService.get_photo(city_param)
-   BackgroundPhoto.new(url)
+    url = PhotoService.get_photo(city_param)
+    BackgroundPhoto.new(url)
   end
 end

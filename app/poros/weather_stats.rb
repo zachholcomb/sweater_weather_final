@@ -3,10 +3,10 @@ class WeatherStats
               :current_weather,
               :hourly_forecast,
               :daily_forecast
-  
+
   def initialize(stats)
     @id = nil
-    @current_weather = CurrentWeather.new(stats)
+    @current_weather = CurrentWeather.new(stats[:current])
     @hourly_forecast = get_hourly_forecast(stats)
     @daily_forecast = get_daily_forecast(stats)
   end
@@ -24,7 +24,7 @@ class WeatherStats
   end
 
   def get_daily_forecast(stats)
-    stats[:daily][1..5].map do |daily_params|
+    stats[:daily][0..5].map do |daily_params|
       DailyWeather.new(daily_params)
     end
   end

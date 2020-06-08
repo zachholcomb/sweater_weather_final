@@ -28,8 +28,6 @@ RSpec.describe 'Forecast request spec' do
         expect(current[:sunset]).to eq(" 8:26")
         expect(current[:humidity]).to eq(9)
         expect(current[:uv_index]).to eq('11 (extreme)')
-        expect(current[:temp_min]).to eq(74)
-        expect(current[:temp_max]).to eq(88)
         expect(current[:icon]).to eq("http://openweathermap.org/img/wn/01d@2x.png")
       end
     end
@@ -42,11 +40,11 @@ RSpec.describe 'Forecast request spec' do
         forecast_response = JSON.parse(response.body, symbolize_names: true)
         daily = forecast_response[:data][:attributes][:daily_forecast].first
 
-        expect(daily[:day]).to eq('Monday')
-        expect(daily[:min_temp]).to eq(51)
-        expect(daily[:max_temp]).to eq(80)
-        expect(daily[:description]).to eq('Rain')
-        expect(daily[:precipitation]).to eq(4)
+        expect(daily[:day]).to eq('Sunday')
+        expect(daily[:min_temp]).to eq(74)
+        expect(daily[:max_temp]).to eq(88)
+        expect(daily[:description]).to eq('Clear')
+        expect(daily[:precipitation]).to eq(0)
       end
     end
   end
