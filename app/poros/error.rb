@@ -6,6 +6,7 @@ class Error
     @id = nil
     @message = message
   end
+  
   class << self
     def missing_params
       message = 'Missing required fields'
