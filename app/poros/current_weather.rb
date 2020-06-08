@@ -11,7 +11,7 @@ class CurrentWeather
 
   def initialize(stats)
     @current_temperature = stats[:current][:current_temp]
-    @description = stats[:current][:weather][:description]
+    @description = stats[:current][:weather].first[:description]
     @feels_like = stats[:current][:feels_like]
     @sunrise = stats[:current][:sunrise]
     @sunset = stats[:current][:sunset]
@@ -19,5 +19,6 @@ class CurrentWeather
     @uv_index = stats[:current][:uvi]
     @temp_min = stats[:daily].first[:temp][:min]
     @temp_max = stats[:daily].first[:temp][:max]
+    @icon = stats[:current][:weather].first[:icon]
   end
 end
