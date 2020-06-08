@@ -11,8 +11,9 @@ class ForecastService
       Faraday.get('https://api.openweathermap.org/data/2.5/onecall?') do |req|
         req.params['appid'] = ENV['WEATHER_API_KEY']
         req.params['lat'] = city_params[:lat]
-        req.params['lon'] = city_params[:lon]
+        req.params['lon'] = city_params[:lng]
         req.params['exclude'] = 'minutely'
+        req.params['units'] = 'imperial'
       end
     end
 
