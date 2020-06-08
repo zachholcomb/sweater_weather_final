@@ -8,6 +8,9 @@ RSpec.describe 'Forecast request spec' do
         forecast_response = JSON.parse(response.body, symbolize_names: true)
 
         expect(response).to be_successful
+        expect(forecast_response[:data][:attributes][:current_weather]).not_to eq(nil)
+        expect(forecast_response[:data][:attributes][:hourly_forecast]).not_to eq(nil)
+        expect(forecast_response[:data][:attributes][:daily_forecast]).not_to eq(nil)
       end
     end
   end
