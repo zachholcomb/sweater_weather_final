@@ -27,7 +27,7 @@ RSpec.describe 'Forecast request spec' do
         expect(current[:sunrise]).to eq(" 5:32")
         expect(current[:sunset]).to eq(" 8:26")
         expect(current[:humidity]).to eq(9)
-        expect(current[:uv_index]).to eq(11)
+        expect(current[:uv_index]).to eq('11 (extreme)')
         expect(current[:temp_min]).to eq(74)
         expect(current[:temp_max]).to eq(88)
         expect(current[:icon]).to eq("http://openweathermap.org/img/wn/01d@2x.png")

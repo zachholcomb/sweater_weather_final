@@ -9,6 +9,8 @@ class HourlyWeather
     @icon = get_icon_url(stats[:weather].first[:icon])
   end
 
+  private
+
   def format_hour(time)
     Time.at(time).strftime('%l:%M %p')
   end

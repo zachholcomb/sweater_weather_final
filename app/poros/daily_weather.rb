@@ -15,6 +15,8 @@ class DailyWeather
     @precipitation = calculate_precipitation(stats)
   end
 
+  private
+
   def calculate_precipitation(stats)
     total = 0
     total += stats[:rain] if stats[:rain]

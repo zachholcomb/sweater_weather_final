@@ -17,10 +17,20 @@ class CurrentWeather
     @sunrise = format_clock_time(stats[:current][:sunrise])
     @sunset = format_clock_time(stats[:current][:sunset])
     @humidity = stats[:current][:humidity]
-    @uv_index = stats[:current][:uvi].round
+    @uv_index = format_uv_index(stats[:current][:uvi].round)
     @temp_min = stats[:daily].first[:temp][:min].round
     @temp_max = stats[:daily].first[:temp][:max].round
     @icon = get_icon_url(stats[:current][:weather].first[:icon])
+  end
+
+  private
+
+  def format_uv_index(uv)
+    return "#{uv} (extreme)" if uv >= 11
+    return "#{uv} (very high)" if uv >= 8
+    return "#{uv} (high)" if uv >= 6
+    return "#{uv} (moderate)" if uv >= 3
+    "#{uv} (low)"
   end
 
   def format_current_time(time)
