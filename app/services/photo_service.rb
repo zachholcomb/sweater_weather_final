@@ -1,5 +1,6 @@
 class PhotoService
   class << self
+    include Formatable
     def get_photo(city_param)
       url = 'https://maps.googleapis.com/maps/api/place/photo?'
       photo_reference = "photoreference=#{get_photo_reference(city_param)}"
@@ -24,10 +25,6 @@ class PhotoService
       Faraday.new('https://maps.googleapis.com') do |req|
         req.params['key'] = ENV['GOOGLE_MAPS_API_KEY']
       end
-    end
-
-    def get_json(response)
-      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end
