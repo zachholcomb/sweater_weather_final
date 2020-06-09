@@ -33,7 +33,7 @@ class Error
     end
     
     def password
-      message = "Password and email don't match"
+      message = "Bad credentials"
       error = Error.new(message)
       ErrorSerializer.new(error)
     end
