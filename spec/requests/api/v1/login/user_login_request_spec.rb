@@ -8,7 +8,7 @@ RSpec.describe 'User login API' do
   it 'logins in a user with correct credentials' do
     login_params = {
       "email": "whatever@example.com",
-      "password": "password",
+      "password": "password"
     }
 
     post '/api/v1/sessions', params: login_params

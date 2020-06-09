@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Road Trip API' do
   before(:each) do
     @user = User.create!(email: "whatever@example.com", password: 'password')
+    @headers = {
+      'Content-Type': 'application/json'
+    }
   end
 
   it 'can create a new road trip from a user' do
@@ -15,7 +18,7 @@ RSpec.describe 'Road Trip API' do
         "api_key": "#{@user.api_key}"
         }
 
-        post '/api/v1/road_trip', params: road_trip_param
+        post '/api/v1/road_trip', params: road_trip_param.to_json, headers: @headers
         expect(response).to be_successful 
         expect(response.status).to eq(200)
         road_trip_response = JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
@@ -39,7 +42,7 @@ RSpec.describe 'Road Trip API' do
         "api_key": "jgn983hy48thw9begh98h4539h4"
         }
 
-        post '/api/v1/road_trip', params: road_trip_param
+        post '/api/v1/road_trip', params: road_trip_param.to_json, headers: @headers
         expect(response).not_to be_successful
         expect(response.status).to eq(401)
         error_response = JSON.parse(response.body, symbolize_names: true)
@@ -58,7 +61,7 @@ RSpec.describe 'Road Trip API' do
         "api_key": "#{@user.api_key}"
         }
 
-        post '/api/v1/road_trip', params: road_trip_param
+        post '/api/v1/road_trip', params: road_trip_param.to_json, headers: @headers
         expect(response).not_to be_successful
         expect(response.status).to eq(400)
         error_response = JSON.parse(response.body, symbolize_names: true)
