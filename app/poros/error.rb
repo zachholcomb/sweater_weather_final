@@ -10,36 +10,35 @@ class Error
   class << self
     def missing_params
       message = 'Missing required fields'
-      error = Error.new(message)
-      ErrorSerializer.new(error)
+      create_error(message)
     end
 
     def mismatched_passwords
       message = 'Password and pasword confirmation dont match'
-      error = Error.new(message)
-      ErrorSerializer.new(error)
+      create_error(message)
     end
 
     def same_email
       message = 'Email already exists'
-      error = Error.new(message)
-      ErrorSerializer.new(error)
+      create_error(message)
     end
 
     def no_user
       message = "Can't find user with that email"
-      error = Error.new(message)
-      ErrorSerializer.new(error)
+      create_error(message)
     end
     
     def password
       message = "Bad credentials"
-      error = Error.new(message)
-      ErrorSerializer.new(error)
+      create_error(message)
     end
 
     def unauthorized
       message = "Unauthorized"
+      create_error(message)
+    end
+
+    def create_error(message)
       error = Error.new(message)
       ErrorSerializer.new(error)
     end
