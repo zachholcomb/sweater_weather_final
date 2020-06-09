@@ -1,5 +1,6 @@
 class ForecastService
   class << self
+    include Formatable
     def get_forecast(city_params)
       response = conn(city_params)
       get_json(response)
@@ -15,10 +16,6 @@ class ForecastService
         req.params['exclude'] = 'minutely'
         req.params['units'] = 'imperial'
       end
-    end
-
-    def get_json(response)
-      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end
