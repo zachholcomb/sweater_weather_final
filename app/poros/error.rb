@@ -6,7 +6,7 @@ class Error
     @id = nil
     @message = message
   end
-  
+
   class << self
     def missing_params
       message = 'Missing required fields'
@@ -22,6 +22,18 @@ class Error
 
     def same_email
       message = 'Email already exists'
+      error = Error.new(message)
+      ErrorSerializer.new(error)
+    end
+
+    def no_user
+      message = "Can't find user with that email"
+      error = Error.new(message)
+      ErrorSerializer.new(error)
+    end
+    
+    def password
+      message = "Password and email don't match"
       error = Error.new(message)
       ErrorSerializer.new(error)
     end
