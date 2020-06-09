@@ -11,4 +11,8 @@ class BackgroundPhoto
     url = PhotoService.get_photo(city_param)
     BackgroundPhoto.new(url)
   end
+
+  def cache_key
+    self.photo_url
+  end
 end
