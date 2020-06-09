@@ -16,7 +16,6 @@ class Api::V1::RoadTripController < ApplicationController
   end
 
   def params_missing?
-    params[:origin].nil? || params[:destination].nil? ||
-      params[:origin].empty? || params[:destination].empty?
+    params[:origin].blank? || params[:destination].blank?
   end
 end
