@@ -5,7 +5,7 @@ class GoogleDirectionService
         req.params['origin'] = origin
         req.params['destination'] = destination
       end
-      get_json(response)[:routes].first[:legs].first[:duration][:text]
+      get_json(response)[:routes].first[:legs].first[:duration]
     end
 
     private

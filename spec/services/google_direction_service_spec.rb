@@ -6,7 +6,7 @@ RSpec.describe 'Google Directions Service' do
       origin = 'Denver,CO'
       destination = 'Pueblo,CO'
       expected = "1 hour 48 mins"
-      expect(GoogleDirectionService.get_travel_duration(origin, destination)).to eq(expected)
+      expect(GoogleDirectionService.get_travel_duration(origin, destination)[:text]).to eq(expected)
     end
   end
 end
