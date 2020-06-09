@@ -28,7 +28,20 @@ RSpec.describe 'Forecast request spec' do
         expect(current[:sunset]).to eq(" 8:26")
         expect(current[:humidity]).to eq(9)
         expect(current[:uv_index]).to eq('11 (extreme)')
+        expect(current[:visibility]).to eq('n/a')
         expect(current[:icon]).to eq("http://openweathermap.org/img/wn/01d@2x.png")
+      end
+    end
+  end
+
+  it "returns visibility and low uvi" do
+    VCR.use_cassette('denver_city_search') do 
+      VCR.use_cassette('test_forecast') do
+        get '/api/v1/forecast?location=denver,co'
+        forecast_response = JSON.parse(response.body, symbolize_names: true)
+        current = forecast_response[:data][:attributes][:current_weather]
+        expect(current[:uv_index]).to eq('2 (low)')
+        expect(current[:visibility]).to eq(2)
       end
     end
   end

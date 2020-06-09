@@ -18,6 +18,7 @@ class CurrentWeather
     @sunset = format_clock_time(stats[:sunset])
     @humidity = stats[:humidity]
     @uv_index = format_uv_index(stats[:uvi].round)
+    @visibility = format_distance(stats[:visibility])
     @icon = get_icon_url(stats[:weather].first[:icon])
   end
 
@@ -42,5 +43,11 @@ class CurrentWeather
 
   def get_icon_url(icon)
     "http://openweathermap.org/img/wn/#{icon}@2x.png"
+  end
+
+  def format_distance(meters)
+    return 'n/a' if meters.nil?
+
+    meters.to_i / 1600.0.round
   end
 end
