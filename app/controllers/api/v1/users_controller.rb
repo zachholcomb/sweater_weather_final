@@ -1,9 +1,10 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    return render json: Error.missing_params, status: 400 if missing_params?
-    return render json: Error.mismatched_passwords, status: 400 if passwords_match?
-    return render json: Error.same_email, status: 400 if email_in_use?
-    render json: UserSerializer.new(User.create(user_params)), status: 201
+    return render json: Error.missing_params, status: :bad_request if missing_params?
+    return render json: Error.mismatched_passwords, status: :bad_request if passwords_match?
+    return render json: Error.same_email, status: :bad_request if email_in_use?
+
+    render json: UserSerializer.new(User.create(user_params)), status: :created
   end
 
   private
@@ -17,13 +18,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def missing_params?
-    params[:email].nil? || params[:email].empty? || params[:password].nil? ||
-    params[:password].empty? || params[:password_confirmation].nil? ||
-    params[:password_confirmation].empty?
+    params[:email].blank? || params[:password].blank? ||
+      params[:password_confirmation].blank?
   end
 
   def passwords_match?
-    !(params[:password] == params[:password_confirmation])
+    params[:password] != params[:password_confirmation]
   end
 
   def email_in_use?

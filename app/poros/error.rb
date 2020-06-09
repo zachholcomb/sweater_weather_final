@@ -1,7 +1,7 @@
 class Error
   attr_reader :id,
               :message
-  
+
   def initialize(message)
     @id = nil
     @message = message
@@ -27,14 +27,14 @@ class Error
       message = "Can't find user with that email"
       create_error(message)
     end
-    
+
     def password
-      message = "Bad credentials"
+      message = 'Bad credentials'
       create_error(message)
     end
 
     def unauthorized
-      message = "Unauthorized"
+      message = 'Unauthorized'
       create_error(message)
     end
 

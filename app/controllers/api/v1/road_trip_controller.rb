@@ -1,8 +1,9 @@
 class Api::V1::RoadTripController < ApplicationController
   def create
     user = User.find_by(api_key: params[:api_key])
-    return render json: Error.unauthorized, status: 401 if !user
-    return render json: Error.missing_params, status: 400 if params_missing?
+    return render json: Error.unauthorized, status: :unauthorized unless user
+    return render json: Error.missing_params, status: :bad_request if params_missing?
+
     render json: RoadTripSerializer.new(
       RoadTrip.road_trip_data(road_trip_params, user)
     )
@@ -15,7 +16,7 @@ class Api::V1::RoadTripController < ApplicationController
   end
 
   def params_missing?
-    params[:origin].nil? || params[:destination].nil? || 
-    params[:origin].empty? || params[:destination].empty?
+    params[:origin].nil? || params[:destination].nil? ||
+      params[:origin].empty? || params[:destination].empty?
   end
 end
