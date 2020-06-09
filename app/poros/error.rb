@@ -37,5 +37,11 @@ class Error
       error = Error.new(message)
       ErrorSerializer.new(error)
     end
+
+    def unauthorized
+      message = "Unauthorized"
+      error = Error.new(message)
+      ErrorSerializer.new(error)
+    end
   end
 end
