@@ -27,11 +27,16 @@ RSpec.describe 'User Registration API' do
   end
 
   it 'cant register a user with missing params' do
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
     expect(User.all.length).to eq(0)
     user_params =  {
     "email": "whatever@example.com"
     }
-    post '/api/v1/users', params: user_params
+
+    post '/api/v1/users', params: user_params.to_json, headers: headers
     error_response = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).not_to be_successful
@@ -41,6 +46,10 @@ RSpec.describe 'User Registration API' do
   end
 
   it 'cant register a user if a user exists with the same email' do
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
     user = User.create!(email: "whatever@example.com", password: 'password')
     expect(User.all.length).to eq(1)
 
@@ -50,7 +59,7 @@ RSpec.describe 'User Registration API' do
     "password_confirmation": "password"
     }
 
-    post '/api/v1/users', params: user_params
+    post '/api/v1/users', params: user_params.to_json, headers: headers
     error_response = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).not_to be_successful
@@ -60,6 +69,10 @@ RSpec.describe 'User Registration API' do
   end
 
   it 'cant register a user if a the password params submitted dont match' do
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
     expect(User.all.length).to eq(0)
     user_params =  {
     "email": "whatever@example.com",
@@ -67,7 +80,7 @@ RSpec.describe 'User Registration API' do
     "password_confirmation": "dog"
     }
 
-    post '/api/v1/users', params: user_params
+    post '/api/v1/users', params: user_params.to_json, headers: headers
     error_response = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).not_to be_successful
