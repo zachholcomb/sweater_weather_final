@@ -2,14 +2,19 @@ require 'rails_helper'
 
 RSpec.describe 'User Registration API' do
   it 'can register a user via post request' do
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
     expect(User.all.length).to eq(0)
+
     user_params =  {
     "email": "whatever@example.com",
     "password": "password",
     "password_confirmation": "password"
     }
 
-    post '/api/v1/users', params: user_params
+    post '/api/v1/users', params: user_params.to_json, headers: headers
 
     expect(response).to be_successful
     expect(response.status).to eq(201)
