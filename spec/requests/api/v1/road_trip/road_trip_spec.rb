@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Road Trip API' do
   before(:each) do
     @time_now = Time.mktime(2020,6,9)
-    allow(Time).to receive(:now).and_return(@time_now)
+    allow(Time.zone).to receive(:now).and_return(@time_now)
     @user = User.create!(email: "whatever@example.com", password: 'password')
     @headers = {
       'Content-Type': 'application/json'
