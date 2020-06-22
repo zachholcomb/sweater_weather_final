@@ -10,7 +10,7 @@ RSpec.describe 'Road Trip API' do
     }
   end
 
-  it 'can create a new road trip from a user' do
+  xit 'can create a new road trip from a user' do
     VCR.use_cassette('pueblo_direction_service') do
       VCR.use_cassette('pueblo_forecast') do
         expect(RoadTrip.all.length).to eq(0)
@@ -34,7 +34,7 @@ RSpec.describe 'Road Trip API' do
     end
   end
 
-  it 'cant create a user with an incorrect api' do
+  xit 'cant create a user with an incorrect api' do
     VCR.use_cassette('pueblo_direction_service') do
       VCR.use_cassette('pueblo_forecast') do
         expect(RoadTrip.all.length).to eq(0)
@@ -53,7 +53,7 @@ RSpec.describe 'Road Trip API' do
     end
   end
 
-  it 'cant create a user with a road trip with missing parameters' do
+  xit 'cant create a user with a road trip with missing parameters' do
     VCR.use_cassette('pueblo_direction_service') do
       VCR.use_cassette('pueblo_forecast') do
         expect(RoadTrip.all.length).to eq(0)
