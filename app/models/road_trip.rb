@@ -18,12 +18,12 @@ class RoadTrip < ApplicationRecord
     end
 
     def get_road_trip_weather(location, time)
-      arrival_time = Time.zone.now + time[:value]
+      arrival_time = Time.now + time[:value]
       coordinates = GeocodingService.get_lat_long(location)
       stats = ForecastService.get_forecast(coordinates)
       weather = stats[:hourly].find do |forecast|
-        hour_later = Time.zone.at(forecast[:dt] + 3600)
-        hour_later > arrival_time && arrival_time >= Time.zone.at(forecast[:dt])
+        hour_later = Time.at(forecast[:dt] + 3600)
+        hour_later > arrival_time && arrival_time >= Time.at(forecast[:dt])
       end
     end
 
