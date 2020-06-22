@@ -34,11 +34,11 @@ class CurrentWeather
   end
 
   def format_current_time(time)
-    Time.at(time).strftime('%l:%M %p, %B %e')
+    Time.zone.at(time).strftime('%l:%M %p, %B %e')
   end
 
   def format_clock_time(time)
-    Time.at(time).strftime('%l:%M')
+    Time.zone.at(time).strftime('%l:%M')
   end
 
   def get_icon_url(icon)

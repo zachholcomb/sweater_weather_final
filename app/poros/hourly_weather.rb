@@ -12,7 +12,7 @@ class HourlyWeather
   private
 
   def format_hour(time)
-    Time.at(time).strftime('%l:%M %p')
+    Time.zone.at(time).strftime('%l:%M %p')
   end
 
   def get_icon_url(icon)
