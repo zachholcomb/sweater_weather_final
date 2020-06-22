@@ -25,7 +25,7 @@ class DailyWeather
   end
 
   def format_day(time)
-    Time.at(time).strftime('%A')
+    Time.zone.at(time).strftime('%A')
   end
 
   def get_icon_url(icon)
