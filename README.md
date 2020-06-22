@@ -1,24 +1,12 @@
 # README
+This is the final project for the third module Turing School of Software and Design.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project consists of a ruby on rails API framework that uses Google Maps API and Open Weather API to construct road trip data including the forecast for the road trip, a background image of the destination city, the travel time, and the projected weather at the time of arrival at a destination.
 
-Things you may want to cover:
+In this project I focused on applying abstraction and encapsulation to the rails architecture by using services, poros, and serializers, via FastJson.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run this locally fork and clone.
+Run `bundle install`
+And then `bundle exec figaro install`
+You'll need a google maps api key and an open weather map api key
+Add these keys in your application.yml file as `GOOGLE_MAPS_API_KEY` and `WEATHER_API_KEY`
