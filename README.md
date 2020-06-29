@@ -5,6 +5,8 @@ This project consists of a ruby on rails API framework that uses Google Maps API
 
 In this project I focused on applying abstraction and encapsulation to the rails architecture by using services, poros, and serializers, via FastJson.
 
+# Setup
+
 To run this locally fork and clone.
 
 Run `bundle install`
