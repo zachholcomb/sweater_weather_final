@@ -1,4 +1,6 @@
-# README
+[travis](https://travis-ci.com/zachholcomb/sweater_weather_final.svg?branch=master)
+
+# Sweater Weather
 This is the final project for the third module Turing School of Software and Design.
 
 This project consists of a ruby on rails API framework that uses Google Maps API and Open Weather API to construct road trip data including the forecast for the road trip, a background image of the destination city, the travel time, and the projected weather at the time of arrival at a destination.
