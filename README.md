@@ -1,4 +1,4 @@
-[travis](https://travis-ci.com/zachholcomb/sweater_weather_final.svg?branch=master)
+[![Build Status](https://travis-ci.com/zachholcomb/sweater_weather_final.svg?branch=master)](https://travis-ci.com/zachholcomb/sweater_weather_final)
 
 # Sweater Weather
 This is the final project for the third module Turing School of Software and Design.
